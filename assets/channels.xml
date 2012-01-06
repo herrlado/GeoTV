@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channels>
+	<channel id="1stge" url="http://1tv.ge" logo="R.firsttv"
+		title="1St Georgian" description="1St Georgian state channel">
+		<stream uri="mms://80.241.246.154/1tv" title="Georgian mirror"
+			description="Georgian mirror. Prefer it in" />
+		<stream id="1stge_usa" uri="mms://208.75.229.58/1tv" title="USA Source"
+			description="USA source. Prefer it in outside of" />
+	</channel>
+	<channel id="rustavi2" url="http://www.rustavi2.com/" logo="R.rustavi2"
+		title="რუსთავი 2" description="რუსთავი 2 რაობა">
+		<stream id="rustavi2" uri="mms://208.75.229.18/live1" title="Rustavi 2"
+			description="რუსთავი 2 ის mms:// ნაკადი" />
+	</channel>
+
+	<channel id="fmabkhazia" url="http://fmabkhazia.ge/" logo="R.fmabkhazia"
+		title="აფხაზეთის ხმა" description="აფხაზეთის ხმა">
+		<stream id="fmabkh-rtmp" uri="rtmp://s1.iptv.ge/live-fmabkh/fmabkh-sd.sdp"
+			title="iptv.ge/rtmp" />
+		<stream id="fmabkh" uri="mms://92.51.75.35:/tele" title="SD" />
+
+		<stream id="fmabkh-mobile" uri="mms://94.137.189.197/mobile"
+			title="mobile TV" />
+		<stream id="fmabkh-http" uri="http://109.238.237.194:8084/"
+			title="HTTP" />
+
+	</channel>
+	<channel id="imeditv" url="http://imedi.ge/" logo="R.imeditv"
+		title="იმედი" description="ტელეკომპანია იმედი">
+		<stream id="იმედი" uri="rtmp://s1.iptv.ge/live-imedi/imedi.sdp" title="იმედი"
+			description="iptv.ge/rtmp" />
+	</channel>
+	
+</channels>
+
