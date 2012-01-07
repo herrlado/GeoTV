@@ -18,6 +18,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
+import com.flazr.io.flv.FlvWriter;
+import com.flazr.rtmp.RtmpMessage;
 import com.flazr.rtmp.client.ClientOptions;
 import com.flazr.rtmp.client.RtmpClient;
 import com.flazr.util.Utils;
@@ -134,6 +136,11 @@ public class Main extends ListActivity implements OnItemClickListener,
 	//		intent.setDataAndType(Uri.parse(options.getSaveAs()), "video/*");
 		//	startActivity(intent);
 			//options.setWriterToSave(writerToSave)
+			//options.setWriterToSave(new FlvWriter(options.getStreamName()){@Override
+			//public void write(RtmpMessage message) {
+				// TODO Auto-generated method stub
+				//super.write(message);
+			//}});
 			client = new RtmpClient(options);
 			return (Void) null;
 		}
