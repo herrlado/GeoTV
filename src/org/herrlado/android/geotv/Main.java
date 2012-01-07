@@ -6,6 +6,7 @@ import java.util.List;
 import org.herrlado.android.geotv.xml.ChannelParser;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
@@ -36,46 +38,46 @@ public class Main extends ListActivity implements OnItemClickListener,
 	// public Main() {
 	//
 	// Channel r = new Channel();
-	// r.setTitle("რუსთავი 2");
+	// r.setTitle("áƒ áƒ£áƒ¡áƒ—áƒ�áƒ•áƒ˜ 2");
 	// r.setLogo(new RLogo(R.drawable.rustavi2));
 	// r.setDescription("Rustavi 2 description text here");
 	// Stream s = new Stream();
-	// s.setTitle("საქართველო");
+	// s.setTitle("áƒ¡áƒ�áƒ¥áƒ�áƒ áƒ—áƒ•áƒ”áƒšáƒ�");
 	// s.setUri("mms://208.75.229.18/live1");
-	// s.setDescription("კარგად მუშაობს საქართველოდან");
+	// s.setDescription("áƒ™áƒ�áƒ áƒ’áƒ�áƒ“ áƒ›áƒ£áƒ¨áƒ�áƒ�áƒ‘áƒ¡ áƒ¡áƒ�áƒ¥áƒ�áƒ áƒ—áƒ•áƒ”áƒšáƒ�áƒ“áƒ�áƒœ");
 	// r.getStreams().add(s);
 	//
 	// channels.add(r);
 	//
 	// r = new Channel();
 	// r.setLogo(new RLogo(R.drawable.firsttv));
-	// r.setTitle("პირველი არხი");
-	// r.setDescription("საქართველოს სახელმწიფო არხი");
+	// r.setTitle("áƒžáƒ˜áƒ áƒ•áƒ”áƒšáƒ˜ áƒ�áƒ áƒ®áƒ˜");
+	// r.setDescription("áƒ¡áƒ�áƒ¥áƒ�áƒ áƒ—áƒ•áƒ”áƒšáƒ�áƒ¡ áƒ¡áƒ�áƒ®áƒ”áƒšáƒ›áƒ¬áƒ˜áƒ¤áƒ� áƒ�áƒ áƒ®áƒ˜");
 	// s = new Stream();
 	//
 	// s = new Stream();
-	// s.setTitle("ამერიკა");
+	// s.setTitle("áƒ�áƒ›áƒ”áƒ áƒ˜áƒ™áƒ�");
 	// s.setUri("mms://208.75.229.58/1tv");
-	// s.setDescription("კარგად მუშაობს ამერიკიდან ან ევროპიდან");
+	// s.setDescription("áƒ™áƒ�áƒ áƒ’áƒ�áƒ“ áƒ›áƒ£áƒ¨áƒ�áƒ�áƒ‘áƒ¡ áƒ�áƒ›áƒ”áƒ áƒ˜áƒ™áƒ˜áƒ“áƒ�áƒœ áƒ�áƒœ áƒ”áƒ•áƒ áƒ�áƒžáƒ˜áƒ“áƒ�áƒœ");
 	// r.getStreams().add(s);
 	//
 	// s = new Stream();
-	// s.setTitle("საქართველო");
+	// s.setTitle("áƒ¡áƒ�áƒ¥áƒ�áƒ áƒ—áƒ•áƒ”áƒšáƒ�");
 	// s.setUri("mms://80.241.246.154/1tv");
-	// s.setDescription("კარგად მუშაობს საქართველოდან");
+	// s.setDescription("áƒ™áƒ�áƒ áƒ’áƒ�áƒ“ áƒ›áƒ£áƒ¨áƒ�áƒ�áƒ‘áƒ¡ áƒ¡áƒ�áƒ¥áƒ�áƒ áƒ—áƒ•áƒ”áƒšáƒ�áƒ“áƒ�áƒœ");
 	// r.getStreams().add(s);
 	//
 	// channels.add(r);
 	//
 	// r = new Channel();
 	// r.setLogo(new RLogo(R.drawable.imeditv));
-	// r.setTitle("იმედი");
-	// r.setDescription("იმედი იყო კარგი არხი?!");
+	// r.setTitle("áƒ˜áƒ›áƒ”áƒ“áƒ˜");
+	// r.setDescription("áƒ˜áƒ›áƒ”áƒ“áƒ˜ áƒ˜áƒ§áƒ� áƒ™áƒ�áƒ áƒ’áƒ˜ áƒ�áƒ áƒ®áƒ˜?!");
 	//
 	// s = new Stream();
 	// s.setTitle("rtmp");
 	// s.setUri("rtmp://s1.iptv.ge/live-imedi/imedi.sdp");
-	// s.setDescription("კარგად მუშაობს ამერიკიდან ან ევროპიდან");
+	// s.setDescription("áƒ™áƒ�áƒ áƒ’áƒ�áƒ“ áƒ›áƒ£áƒ¨áƒ�áƒ�áƒ‘áƒ¡ áƒ�áƒ›áƒ”áƒ áƒ˜áƒ™áƒ˜áƒ“áƒ�áƒœ áƒ�áƒœ áƒ”áƒ•áƒ áƒ�áƒžáƒ˜áƒ“áƒ�áƒœ");
 	// r.getStreams().add(s);
 	//
 	// channels.add(r);
@@ -108,16 +110,39 @@ public class Main extends ListActivity implements OnItemClickListener,
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view,
 			int position, long id) {
+
+		final Dialog dialog = new Dialog(this);
+		dialog.setTitle("Select stream:");
+		dialog.setContentView(R.layout.channelselector);
+		ListView lv = (ListView) dialog.findViewById(R.id.channels);
+		ChannelSelectAdapter cAdapter = new ChannelSelectAdapter(this);
+		final Channel c = adapter.getItem(position);
+		for (Stream s : c.getStreams()) {
+			cAdapter.add(s);
+		}
+		lv.setAdapter(cAdapter);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int position, long arg3) {
+				doClick(c, position);
+				dialog.dismiss();
+			}
+		});
+		
+		dialog.show();
+
 		return parent.showContextMenu();
 		// Intent myIntent = new Intent(view.getContext(), DetailView.class);
 		// startActivityForResult(myIntent, 0);
 		// return true;
 	}
-	
+
 	MyAsyncTask loader;
-	
+
 	RtmpClient client;
-	
+
 	public class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
 		Stream stream;
@@ -129,18 +154,20 @@ public class Main extends ListActivity implements OnItemClickListener,
 		protected Void doInBackground(Void... params) {
 			ClientOptions options = new ClientOptions();
 			options.parseUrl(stream.getUri());
-			options.setSaveAs("/sdcard/"+options.getStreamName()+".flv");
+			options.setSaveAs("/sdcard/" + options.getStreamName() + ".flv");
 			options.setSwfSize(99201);
-			options.setSwfHash(Utils.fromHex("32B4CC51D05F5D6670D3EB26697F77DCF6150DF0B48132756B969ABCE854DDF0"));
-//			final Intent intent = new Intent(Intent.ACTION_VIEW);
-	//		intent.setDataAndType(Uri.parse(options.getSaveAs()), "video/*");
-		//	startActivity(intent);
-			//options.setWriterToSave(writerToSave)
-			//options.setWriterToSave(new FlvWriter(options.getStreamName()){@Override
-			//public void write(RtmpMessage message) {
-				// TODO Auto-generated method stub
-				//super.write(message);
-			//}});
+			options.setSwfHash(Utils
+					.fromHex("32B4CC51D05F5D6670D3EB26697F77DCF6150DF0B48132756B969ABCE854DDF0"));
+			// final Intent intent = new Intent(Intent.ACTION_VIEW);
+			// intent.setDataAndType(Uri.parse(options.getSaveAs()), "video/*");
+			// startActivity(intent);
+			// options.setWriterToSave(writerToSave)
+			// options.setWriterToSave(new
+			// FlvWriter(options.getStreamName()){@Override
+			// public void write(RtmpMessage message) {
+			// TODO Auto-generated method stub
+			// super.write(message);
+			// }});
 			client = new RtmpClient(options);
 			return (Void) null;
 		}
@@ -162,7 +189,11 @@ public class Main extends ListActivity implements OnItemClickListener,
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		Channel c = adapter.getItem(arg2);
-		Stream s = c.getStreams().get(0);
+		doClick(c, 0);
+	}
+
+	public void doClick(Channel c, int index) {
+		Stream s = c.getStreams().get(index);
 
 		if (s.getUri().startsWith("rtmp")) {
 			streamRtmp(s);
